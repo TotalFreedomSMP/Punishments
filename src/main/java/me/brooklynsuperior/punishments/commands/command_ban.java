@@ -17,12 +17,14 @@ public class command_ban implements CommandExecutor {
 
         if (args.length == 0) {
             sender.sendMessage(ChatColor.RED + "Supply a username to ban");
+            return true;
         }
 
         Player player = Bukkit.getPlayer(args[0]);
 
         if (player == null) {
             sender.sendMessage(ChatColor.RED + "Player not found");
+            return true;
         }
 
         StringBuilder message = new StringBuilder()
@@ -45,7 +47,7 @@ public class command_ban implements CommandExecutor {
             player.kickPlayer(message.toString());
             Utils.broadcast(ChatColor.LIGHT_PURPLE + sender.getName() + ChatColor.RED + " - Banning " + ChatColor.LIGHT_PURPLE + player.getName() + ChatColor.RED + " with reason: " + "'" + ChatColor.LIGHT_PURPLE + reason + ChatColor.RED + "'");
         } else {
-            player.sendMessage(Utils.chatcolor("&cYou do not have valid permissions to run this command"));
+            sender.sendMessage(Utils.chatcolor("&cYou do not have valid permissions to run this command"));
         }
         return true;
     }
