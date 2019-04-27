@@ -1,0 +1,17 @@
+name: Punishments
+version: ${project.version}
+main: me.brooklynsuperior.punishments.Punishments
+authors: [speediv]
+description: punishments that aren't vanilla punishments
+
+commands:
+  ban:
+    description: Bans a player with said reason
+    usage: /<command> [player] [reason]
+  kick:
+    description: Kicks a player with said reason
+    usage: /<command> [player] [reason]
+  unban:
+    description: Unbans said player
+    usage: /<command> [player]
+    aliases: [pardon]
