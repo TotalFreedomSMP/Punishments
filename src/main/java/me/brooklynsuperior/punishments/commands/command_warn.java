@@ -1,7 +1,7 @@
 package me.brooklynsuperior.punishments.commands;
 
 import me.brooklynsuperior.punishments.utils.Utils;
-import org.bukkit.BanList;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -9,13 +9,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class command_unban implements CommandExecutor {
+public class command_warn implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length == 0) {
-            sender.sendMessage(ChatColor.RED + "Supply a username to unban");
+            sender.sendMessage(ChatColor.RED + "Supply a username to warn");
             return true;
         }
 
@@ -26,16 +26,15 @@ public class command_unban implements CommandExecutor {
             return true;
         }
 
-        if (!player.isBanned())
+        String reason = "No reason provided";
+        if (args.length > 1)
         {
-            sender.sendMessage(ChatColor.RED + "That player is not banned");
-            return true;
+            reason = StringUtils.join(args, " ", 1, args.length);
         }
 
-        if (player.hasPermission("punishments.unban")) {
-            Bukkit.getBanList(BanList.Type.NAME).pardon(player.getName());
-            Utils.broadcast(ChatColor.LIGHT_PURPLE + sender.getName() + ChatColor.RED + " - Unbanning " + ChatColor.LIGHT_PURPLE + player.getName());
-
+        if (player.hasPermission("punishments.warn")) {
+            Utils.broadcast(ChatColor.LIGHT_PURPLE + sender.getName() + ChatColor.RED + " - Warning " + ChatColor.LIGHT_PURPLE + player.getName() + ChatColor.RED + " with reason: " + ChatColor.LIGHT_PURPLE + reason);
+            player.sendMessage(ChatColor.RED + "You've been warned by " + ChatColor.LIGHT_PURPLE + sender.getName() + ChatColor.RED + " with reason: " + ChatColor.LIGHT_PURPLE + reason);
         } else {
             sender.sendMessage(Utils.chatcolor("&cYou do not have valid permissions to run this command"));
         }

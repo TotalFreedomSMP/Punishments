@@ -19,6 +19,7 @@ public final class Punishments extends JavaPlugin {
         this.getCommand("ban").setExecutor(new command_ban());
         this.getCommand("kick").setExecutor(new command_kick());
         this.getCommand("unban").setExecutor(new command_unban());
+        this.getCommand("warn").setExecutor(new command_warn());
     }
 
     @Override
