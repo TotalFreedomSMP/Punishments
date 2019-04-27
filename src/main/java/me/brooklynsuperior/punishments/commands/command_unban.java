@@ -28,7 +28,7 @@ public class command_unban implements CommandExecutor {
 
         if (!player.isBanned())
         {
-            sender.sendMessage(ChatColor.GRAY + "That player is not banned.");
+            sender.sendMessage(ChatColor.RED + "That player is not banned.");
             return true;
         }
 
