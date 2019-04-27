@@ -1,2 +1,2 @@
 # Punishments
-idk i got bored
+punishments that aren't vanilla punishments
