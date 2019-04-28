@@ -15,14 +15,14 @@ public class command_warn implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length == 0) {
-            sender.sendMessage(ChatColor.RED + "Supply a username to warn");
+            sender.sendMessage(ChatColor.GRAY + "Supply a username to warn");
             return true;
         }
 
         Player player = Bukkit.getPlayer(args[0]);
 
         if (player == null) {
-            sender.sendMessage(ChatColor.RED + "Player not found");
+            sender.sendMessage(ChatColor.GRAY + "Player not found");
             return true;
         }
 
@@ -33,10 +33,10 @@ public class command_warn implements CommandExecutor {
         }
 
         if (player.hasPermission("punishments.warn")) {
-            Utils.broadcast(ChatColor.LIGHT_PURPLE + sender.getName() + ChatColor.RED + " - Warning " + ChatColor.LIGHT_PURPLE + player.getName() + ChatColor.RED + " with reason: " + ChatColor.LIGHT_PURPLE + reason);
-            player.sendMessage(ChatColor.RED + "You've been warned by " + ChatColor.LIGHT_PURPLE + sender.getName() + ChatColor.RED + " with reason: " + ChatColor.LIGHT_PURPLE + reason);
+            Utils.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Warning " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
+            player.sendMessage(ChatColor.GRAY + "You've been warned by " + ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
         } else {
-            sender.sendMessage(Utils.chatcolor("&cYou do not have valid permissions to run this command"));
+            sender.sendMessage(Utils.chatcolor("&7You do not have valid permissions to run this command"));
         }
         return true;
     }

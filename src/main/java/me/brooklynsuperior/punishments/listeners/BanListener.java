@@ -19,14 +19,14 @@ public class BanListener implements Listener {
             String source = Bukkit.getBanList(BanList.Type.NAME).getBanEntry(event.getPlayer().getName()).getSource();
             {
                 StringBuilder kick = new StringBuilder()
-                        .append(ChatColor.RED)
+                        .append(ChatColor.GRAY)
                         .append("You've been banned from this server")
                         .append("\nBanned by: ")
-                        .append(ChatColor.LIGHT_PURPLE)
+                        .append(ChatColor.GREEN)
                         .append(source)
-                        .append(ChatColor.RED)
+                        .append(ChatColor.GRAY)
                         .append("\nReason: ")
-                        .append(ChatColor.LIGHT_PURPLE)
+                        .append(ChatColor.GREEN)
                         .append(reason);
                 event.disallow(PlayerLoginEvent.Result.KICK_BANNED, kick.toString());
             }

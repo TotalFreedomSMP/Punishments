@@ -12,7 +12,6 @@ public final class Punishments extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        saveDefaultConfig();
         enableCommands();
         enableListeners();
         console.sendMessage("[Punishments] Enabled Punishments v1.0");

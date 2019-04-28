@@ -15,29 +15,29 @@ public class command_unban implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length == 0) {
-            sender.sendMessage(ChatColor.RED + "Supply a username to unban");
+            sender.sendMessage(ChatColor.GRAY + "Supply a username to unban");
             return true;
         }
 
         OfflinePlayer player = Bukkit.getOfflinePlayer(args[0]);
 
         if (player == null) {
-            sender.sendMessage(ChatColor.RED + "Player not found");
+            sender.sendMessage(ChatColor.GRAY + "Player not found");
             return true;
         }
 
         if (!player.isBanned())
         {
-            sender.sendMessage(ChatColor.RED + "That player is not banned");
+            sender.sendMessage(ChatColor.GRAY + "That player is not banned");
             return true;
         }
 
         if (sender.hasPermission("punishments.unban")) {
             Bukkit.getBanList(BanList.Type.NAME).pardon(player.getName());
-            Utils.broadcast(ChatColor.LIGHT_PURPLE + sender.getName() + ChatColor.RED + " - Unbanning " + ChatColor.LIGHT_PURPLE + player.getName());
+            Utils.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Unbanning " + ChatColor.GREEN + player.getName());
 
         } else {
-            sender.sendMessage(Utils.chatcolor("&cYou do not have valid permissions to run this command"));
+            sender.sendMessage(Utils.chatcolor("&7You do not have valid permissions to run this command"));
         }
         return true;
     }
