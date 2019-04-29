@@ -1,5 +1,5 @@
 name: Punishments
-version: ${project.version}
+version: 1.0
 main: me.brooklynsuperior.punishments.Punishments
 authors: [speediv]
 description: punishments that aren't vanilla punishments
@@ -20,4 +20,4 @@ commands:
     usage: /<command> [player] [reason]
   mute:
     description: Mutes a player, also provides reason
-    usage: /<command> [mute] [reason]
+    usage: /<command> [player] [reason]
