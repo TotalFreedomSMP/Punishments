@@ -22,10 +22,12 @@ public final class Punishments extends JavaPlugin {
         this.getCommand("kick").setExecutor(new command_kick());
         this.getCommand("unban").setExecutor(new command_unban());
         this.getCommand("warn").setExecutor(new command_warn());
+        this.getCommand("mute").setExecutor(new command_mute());
     }
 
     private void enableListeners() {
         this.getServer().getPluginManager().registerEvents(new BanListener(), this);
+        this.getServer().getPluginManager().registerEvents(new MuteListener(), this);
     }
 
     @Override

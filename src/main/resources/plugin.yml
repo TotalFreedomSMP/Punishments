@@ -18,3 +18,6 @@ commands:
   warn:
     description: Warns a player with said reason
     usage: /<command> [player] [reason]
+  mute:
+    description: Mutes a player, also provides reason
+    usage: /<command> [mute] [reason]
