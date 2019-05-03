@@ -14,24 +14,21 @@ public class MuteListener implements Listener {
     private static List<Player> mutelist = new ArrayList<>();
 
     public static boolean isMuted(Player player) {
-        mutelist.contains(player);
-        return true;
+        return mutelist.contains(player);
     }
 
-    public static void addMute(Player player, boolean mute)
-    {
-        if (mute)
-        {
+    public static void addMute(Player player) {
             mutelist.add(player);
-        }
+    }
+
+    public static void removeMute(Player player) {
+            mutelist.remove(player);
     }
 
     @EventHandler
-    public void onPlayerChat(AsyncPlayerChatEvent event)
-    {
+    public void onPlayerChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
-        if (mutelist.contains(player));
-        {
+        if (isMuted(player)) {
             player.sendMessage(ChatColor.GRAY + "You have been muted, you may not talk");
             event.setCancelled(true);
         }

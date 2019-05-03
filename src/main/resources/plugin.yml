@@ -21,3 +21,6 @@ commands:
   mute:
     description: Mutes a player, also provides reason
     usage: /<command> [player] [reason]
+  unmute:
+    description: Unmutes said player
+    usage: /<command> [player]

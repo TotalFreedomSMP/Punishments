@@ -27,6 +27,11 @@ public class command_mute implements CommandExecutor {
             return true;
         }
 
+        if (MuteListener.isMuted(player)) {
+            sender.sendMessage(ChatColor.GRAY + "This player is already muted");
+            return true;
+        }
+
         String reason = "No reason provided";
         if (args.length > 1)
         {
@@ -34,12 +39,8 @@ public class command_mute implements CommandExecutor {
         }
 
         if (player.hasPermission("punishments.mute")) {
-            MuteListener.addMute(player, MuteListener.isMuted(player));
+            MuteListener.addMute(player);
 
-        if (MuteListener.isMuted(player)) {
-            sender.sendMessage(ChatColor.GRAY + "This player is already muted");
-            return true;
-        }
             Utils.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Muting " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
             player.sendMessage(ChatColor.GRAY + "You've been muted by " + ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
         } else {
