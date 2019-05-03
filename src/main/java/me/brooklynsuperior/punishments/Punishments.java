@@ -12,9 +12,10 @@ public final class Punishments extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         enableCommands();
         enableListeners();
-        console.sendMessage("[Punishments] Enabled Punishments v1.0");
+        console.sendMessage("[Punishments] Enabled Punishments v1.2");
     }
 
     private void enableCommands() {
@@ -33,6 +34,6 @@ public final class Punishments extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        console.sendMessage("[Punishments] Disabled Punishments v1.0");
+        console.sendMessage("[Punishments] Disabled Punishments v1.2");
     }
 }

@@ -42,6 +42,13 @@ public class command_ban implements CommandExecutor {
                     .append(ChatColor.GREEN)
                     .append(reason);
         }
+
+        String appeal = Utils.getWebsiteOrForum();
+        message.append(ChatColor.GRAY);
+        message.append("\nYou may appeal your ban at: ")
+                .append(ChatColor.GREEN)
+                .append(appeal);
+
         if (player.hasPermission("punishments.ban")) {
             Bukkit.getBanList(BanList.Type.NAME).addBan(player.getName(), reason, null, sender.getName());
             player.kickPlayer(message.toString());
