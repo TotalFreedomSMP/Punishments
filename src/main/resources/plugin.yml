@@ -24,3 +24,6 @@ commands:
   unmute:
     description: Unmutes said player
     usage: /<command> [player]
+  punish:
+    description: '"Punishes" a player'
+    usage: /<command> [player] [reason]

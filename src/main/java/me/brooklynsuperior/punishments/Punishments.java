@@ -25,6 +25,7 @@ public final class Punishments extends JavaPlugin {
         this.getCommand("warn").setExecutor(new command_warn());
         this.getCommand("mute").setExecutor(new command_mute());
         this.getCommand("unmute").setExecutor(new command_unmute());
+        this.getCommand("punish").setExecutor(new command_punish());
     }
 
     private void enableListeners() {
