@@ -1,5 +1,6 @@
 package me.brooklynsuperior.punishments.commands;
 
+import me.brooklynsuperior.punishments.utils.Config;
 import me.brooklynsuperior.punishments.utils.Utils;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.BanList;
@@ -43,7 +44,7 @@ public class command_ban implements CommandExecutor {
                     .append(reason);
         }
 
-        String appeal = Utils.getWebsiteOrForum();
+        String appeal = Config.getWebsiteOrForum();
         message.append(ChatColor.GRAY);
         message.append("\nYou may appeal your ban at: ")
                 .append(ChatColor.GREEN)
