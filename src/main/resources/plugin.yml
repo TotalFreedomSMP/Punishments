@@ -27,3 +27,6 @@ commands:
   punish:
     description: '"Punishes" a player'
     usage: /<command> [player] [reason]
+  punishments:
+    description: Gives you a list of all punishments
+    usage: /<command>
