@@ -50,7 +50,7 @@ public class command_ban implements CommandExecutor {
                 .append(ChatColor.GREEN)
                 .append(appeal);
 
-        if (player.hasPermission("punishments.ban")) {
+        if (sender.hasPermission("punishments.ban")) {
             Bukkit.getBanList(BanList.Type.NAME).addBan(player.getName(), reason, null, sender.getName());
             player.kickPlayer(message.toString());
             Utils.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Banning " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");

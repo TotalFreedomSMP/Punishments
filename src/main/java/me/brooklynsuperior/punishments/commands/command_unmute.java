@@ -31,7 +31,7 @@ public class command_unmute implements CommandExecutor {
             return true;
         }
 
-        if (player.hasPermission("punishments.unmute")) {
+        if (sender.hasPermission("punishments.unmute")) {
             MuteListener.removeMute(player);
 
             Utils.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Unmuting " + ChatColor.GREEN + player.getName());

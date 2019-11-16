@@ -34,7 +34,7 @@ public class command_punish implements CommandExecutor {
             reason = StringUtils.join(args, " ", 1, args.length);
         }
 
-        if (player.hasPermission("punishments.punish")) {
+        if (sender.hasPermission("punishments.punish")) {
             player.setHealth(0.0);
             Location location = player.getLocation();
             World world = player.getWorld();

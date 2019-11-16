@@ -1,3 +1,6 @@
+### 16 November 2019
+- actually fix the permissions
+
 ### 18 May 2019
 - Release [version 1.2](https://github.com/jsinitx4/Punishments/releases/tag/v1.2)
 

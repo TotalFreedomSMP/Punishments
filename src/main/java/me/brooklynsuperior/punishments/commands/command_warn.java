@@ -32,7 +32,7 @@ public class command_warn implements CommandExecutor {
             reason = StringUtils.join(args, " ", 1, args.length);
         }
 
-        if (player.hasPermission("punishments.warn")) {
+        if (sender.hasPermission("punishments.warn")) {
             Utils.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Warning " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
             player.sendMessage(ChatColor.GRAY + "You've been warned by " + ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
         } else {

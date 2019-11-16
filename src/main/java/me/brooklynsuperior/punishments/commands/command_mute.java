@@ -38,7 +38,7 @@ public class command_mute implements CommandExecutor {
             reason = StringUtils.join(args, " ", 1, args.length);
         }
 
-        if (player.hasPermission("punishments.mute")) {
+        if (sender.hasPermission("punishments.mute")) {
             MuteListener.addMute(player);
 
             Utils.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Muting " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");

@@ -44,7 +44,7 @@ public class command_kick implements CommandExecutor {
                     .append(ChatColor.GREEN)
                     .append(reason);
         }
-        if (player.hasPermission("punishments.kick")) {
+        if (sender.hasPermission("punishments.kick")) {
             player.kickPlayer(message.toString());
             Utils.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY +" » Kicking " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
         } else {
