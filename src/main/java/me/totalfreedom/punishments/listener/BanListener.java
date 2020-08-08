@@ -1,6 +1,6 @@
-package me.brooklynsuperior.punishments.listeners;
+package me.totalfreedom.punishments.listener;
 
-import me.brooklynsuperior.punishments.utils.Config;
+import me.totalfreedom.punishments.config.ConfigEntry;
 import org.bukkit.BanList;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -9,16 +9,17 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 
-public class BanListener implements Listener {
+public class BanListener implements Listener
+{
 
     @EventHandler
-    public void onPlayerLogin(PlayerLoginEvent event) {
-        Player player = event.getPlayer();
-
-        if (Bukkit.getBanList(BanList.Type.NAME).isBanned(event.getPlayer().getName())) {
+    public void onPlayerLogin(PlayerLoginEvent event)
+    {
+        if (Bukkit.getBanList(BanList.Type.NAME).isBanned(event.getPlayer().getName()))
+        {
             String reason = Bukkit.getBanList(BanList.Type.NAME).getBanEntry(event.getPlayer().getName()).getReason();
             String source = Bukkit.getBanList(BanList.Type.NAME).getBanEntry(event.getPlayer().getName()).getSource();
-            String appeal = Config.getWebsiteOrForum();
+            String appeal = ConfigEntry.getWebsiteOrForum();
             {
                 StringBuilder kick = new StringBuilder()
                         .append(ChatColor.GRAY)

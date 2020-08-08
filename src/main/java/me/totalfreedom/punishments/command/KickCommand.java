@@ -1,6 +1,6 @@
-package me.brooklynsuperior.punishments.commands;
+package me.totalfreedom.punishments.command;
 
-import me.brooklynsuperior.punishments.utils.Utils;
+import me.totalfreedom.punishments.util.Util;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -9,11 +9,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class command_kick implements CommandExecutor {
-
+public class KickCommand implements CommandExecutor
+{
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
+    {
         if (args.length == 0)
         {
             sender.sendMessage(ChatColor.GRAY + "Supply a username to kick");
@@ -44,11 +44,15 @@ public class command_kick implements CommandExecutor {
                     .append(ChatColor.GREEN)
                     .append(reason);
         }
-        if (sender.hasPermission("punishments.kick")) {
+
+        if (sender.hasPermission("punishments.kick"))
+        {
             player.kickPlayer(message.toString());
-            Utils.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY +" » Kicking " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
-        } else {
-            sender.sendMessage(Utils.chatcolor("&7You do not have valid permissions to run this command"));
+            Util.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Kicking " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
+        }
+        else
+        {
+            sender.sendMessage(Util.chatcolor("&7You do not have valid permissions to run this command"));
         }
         return true;
     }

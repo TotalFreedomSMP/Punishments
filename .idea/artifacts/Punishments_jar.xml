@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Punishments:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Punishments_jar</output-path>
+    <root id="archive" name="Punishments.jar">
+      <element id="module-output" name="Punishments" />
+    </root>
+  </artifact>
+</component>

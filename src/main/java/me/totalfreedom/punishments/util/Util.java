@@ -1,10 +1,10 @@
-package me.brooklynsuperior.punishments.utils;
+package me.totalfreedom.punishments.util;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
-public class Utils {
-
+public class Util
+{
     public static String chatcolor(String string)
     {
         return ChatColor.translateAlternateColorCodes('&', string);
@@ -14,5 +14,4 @@ public class Utils {
     {
         Bukkit.broadcastMessage(string);
     }
-
 }

@@ -1,6 +1,6 @@
-package me.brooklynsuperior.punishments.commands;
+package me.totalfreedom.punishments.command;
 
-import me.brooklynsuperior.punishments.utils.Utils;
+import me.totalfreedom.punishments.util.Util;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -9,19 +9,20 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class command_warn implements CommandExecutor {
-
+public class WarnCommand implements CommandExecutor
+{
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        if (args.length == 0) {
-            sender.sendMessage(ChatColor.GRAY + "Supply a username to warn");
-            return true;
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
+    {
+        if (args.length == 0)
+        {
+            return false;
         }
 
         Player player = Bukkit.getPlayer(args[0]);
 
-        if (player == null) {
+        if (player == null)
+        {
             sender.sendMessage(ChatColor.GRAY + "Player not found");
             return true;
         }
@@ -32,11 +33,14 @@ public class command_warn implements CommandExecutor {
             reason = StringUtils.join(args, " ", 1, args.length);
         }
 
-        if (sender.hasPermission("punishments.warn")) {
-            Utils.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Warning " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
+        if (sender.hasPermission("punishments.warn"))
+        {
+            Util.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Warning " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
             player.sendMessage(ChatColor.GRAY + "You've been warned by " + ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
-        } else {
-            sender.sendMessage(Utils.chatcolor("&7You do not have valid permissions to run this command"));
+        }
+        else
+        {
+            sender.sendMessage(Util.chatcolor("&7You do not have valid permissions to run this command"));
         }
         return true;
     }

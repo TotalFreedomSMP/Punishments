@@ -1,7 +1,7 @@
-package me.brooklynsuperior.punishments.commands;
+package me.totalfreedom.punishments.command;
 
-import me.brooklynsuperior.punishments.utils.Config;
-import me.brooklynsuperior.punishments.utils.Utils;
+import me.totalfreedom.punishments.config.ConfigEntry;
+import me.totalfreedom.punishments.util.Util;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.BanList;
 import org.bukkit.Bukkit;
@@ -11,19 +11,20 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class command_ban implements CommandExecutor {
-
+public class BanCommand implements CommandExecutor
+{
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        if (args.length == 0) {
-            sender.sendMessage(ChatColor.GRAY + "Supply a username to ban");
-            return true;
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
+    {
+        if (args.length == 0)
+        {
+            return false;
         }
 
         Player player = Bukkit.getPlayer(args[0]);
 
-        if (player == null) {
+        if (player == null)
+        {
             sender.sendMessage(ChatColor.GRAY + "Player not found");
             return true;
         }
@@ -36,7 +37,8 @@ public class command_ban implements CommandExecutor {
                 .append(sender.getName());
 
         String reason = "No reason provided";
-        if (args.length > 1) {
+        if (args.length > 1)
+        {
             reason = StringUtils.join(args, " ", 1, args.length);
             message.append(ChatColor.GRAY);
             message.append("\nReason: ")
@@ -44,18 +46,21 @@ public class command_ban implements CommandExecutor {
                     .append(reason);
         }
 
-        String appeal = Config.getWebsiteOrForum();
+        String appeal = ConfigEntry.getWebsiteOrForum();
         message.append(ChatColor.GRAY);
         message.append("\nYou may appeal your ban at: ")
                 .append(ChatColor.GREEN)
                 .append(appeal);
 
-        if (sender.hasPermission("punishments.ban")) {
+        if (sender.hasPermission("punishments.ban"))
+        {
             Bukkit.getBanList(BanList.Type.NAME).addBan(player.getName(), reason, null, sender.getName());
             player.kickPlayer(message.toString());
-            Utils.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Banning " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
-        } else {
-            sender.sendMessage(Utils.chatcolor("&7You do not have valid permissions to run this command"));
+            Util.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Banning " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
+        }
+        else
+        {
+            sender.sendMessage(Util.chatcolor("&7You do not have valid permissions to run this command"));
         }
         return true;
     }

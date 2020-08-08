@@ -1,32 +1,31 @@
 name: Punishments
-version: 1.2
-main: me.brooklynsuperior.punishments.Punishments
-authors: [speediv]
-description: punishments that aren't vanilla punishments
-
+version: ${project.version}
+main: me.totalfreedom.punishments.Punishments
+authors: [speed]
+description: Punishments plugin for the TotalFreedom SMP server
 commands:
   ban:
-    description: Bans a player with said reason
-    usage: /<command> [player] [reason]
+    description: Bans a player, optionally with a reason
+    usage: /<command> <player> [reason]
   kick:
-    description: Kicks a player with said reason
-    usage: /<command> [player] [reason]
+    description: Kicks a player, optionally with a reason
+    usage: /<command> <player> [reason]
   unban:
-    description: Unbans said player
-    usage: /<command> [player]
+    description: Unbans a player
+    usage: /<command> <player>
     aliases: [pardon]
   warn:
-    description: Warns a player with said reason
-    usage: /<command> [player] [reason]
+    description: Warns a player with a reason
+    usage: /<command> <player> <reason>
   mute:
-    description: Mutes a player, also provides reason
-    usage: /<command> [player] [reason]
+    description: Mutes a player, optionally with a reason
+    usage: /<command> <player> [reason]
   unmute:
-    description: Unmutes said player
-    usage: /<command> [player]
+    description: Unmutes a player
+    usage: /<command> <player>
   punish:
-    description: '"Punishes" a player'
-    usage: /<command> [player] [reason]
+    description: Smite a player
+    usage: /<command> <player> [reason]
   punishments:
     description: Gives you a list of all punishments
     usage: /<command>
