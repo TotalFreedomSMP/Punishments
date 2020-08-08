@@ -19,18 +19,13 @@ public class UnbanCommand implements CommandExecutor
             return false;
         }
 
-        if (sender.hasPermission("punishments.unban"))
+        if (!sender.hasPermission("punishments.unban"))
         {
             sender.sendMessage(Util.color("&cYou do not have permission to run this command."));
             return true;
         }
 
         OfflinePlayer player = Bukkit.getOfflinePlayer(args[0]);
-        if (player == null)
-        {
-            sender.sendMessage(ChatColor.GRAY + "Player not found");
-            return true;
-        }
 
         if (!player.isBanned())
         {

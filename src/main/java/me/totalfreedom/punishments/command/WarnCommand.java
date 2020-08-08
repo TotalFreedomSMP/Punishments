@@ -19,7 +19,7 @@ public class WarnCommand implements CommandExecutor
             return false;
         }
 
-        if (sender.hasPermission("punishments.warn"))
+        if (!sender.hasPermission("punishments.warn"))
         {
             sender.sendMessage(Util.color("&cYou do not have permission to run this command."));
             return true;

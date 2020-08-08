@@ -51,7 +51,7 @@ public class BanCommand implements CommandExecutor
                     .append(reason);
         }
 
-        ConfigEntry appeal = ConfigEntry.SERVER_WEBSITE_OR_FORUM;
+        String appeal = ConfigEntry.SERVER_WEBSITE_OR_FORUM.getString();
         message.append(ChatColor.GRAY);
         message.append("\nYou may appeal your ban at: ")
                 .append(ChatColor.GREEN)

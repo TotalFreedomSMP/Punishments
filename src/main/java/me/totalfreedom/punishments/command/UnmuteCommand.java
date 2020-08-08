@@ -19,7 +19,7 @@ public class UnmuteCommand implements CommandExecutor
             return false;
         }
 
-        if (sender.hasPermission("punishments.unmute"))
+        if (!sender.hasPermission("punishments.unmute"))
         {
             sender.sendMessage(Util.color("&cYou do not have permission to run this command."));
             return true;

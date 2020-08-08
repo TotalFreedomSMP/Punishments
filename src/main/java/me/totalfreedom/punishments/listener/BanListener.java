@@ -18,7 +18,7 @@ public class BanListener implements Listener
         {
             String reason = Bukkit.getBanList(BanList.Type.NAME).getBanEntry(event.getPlayer().getName()).getReason();
             String source = Bukkit.getBanList(BanList.Type.NAME).getBanEntry(event.getPlayer().getName()).getSource();
-            ConfigEntry appeal = ConfigEntry.SERVER_WEBSITE_OR_FORUM;
+            String appeal = ConfigEntry.SERVER_WEBSITE_OR_FORUM.getString();
             {
                 StringBuilder kick = new StringBuilder()
                         .append(ChatColor.GRAY)
