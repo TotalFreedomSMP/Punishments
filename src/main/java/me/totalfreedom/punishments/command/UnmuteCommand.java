@@ -19,8 +19,13 @@ public class UnmuteCommand implements CommandExecutor
             return false;
         }
 
-        Player player = Bukkit.getPlayer(args[0]);
+        if (sender.hasPermission("punishments.unmute"))
+        {
+            sender.sendMessage(Util.color("&cYou do not have permission to run this command."));
+            return true;
+        }
 
+        Player player = Bukkit.getPlayer(args[0]);
         if (player == null)
         {
             sender.sendMessage(ChatColor.GRAY + "Player not found");
@@ -33,15 +38,8 @@ public class UnmuteCommand implements CommandExecutor
             return true;
         }
 
-        if (sender.hasPermission("punishments.unmute"))
-        {
-            MuteListener.removeMute(player);
-            Util.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Unmuting " + ChatColor.GREEN + player.getName());
-        }
-        else
-        {
-            sender.sendMessage(Util.chatcolor("&7You do not have valid permissions to run this command"));
-        }
+        MuteListener.removeMute(player);
+        Util.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Unmuting " + ChatColor.GREEN + player.getName());
         return true;
     }
 }

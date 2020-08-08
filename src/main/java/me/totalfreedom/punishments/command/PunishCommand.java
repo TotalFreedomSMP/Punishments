@@ -18,12 +18,16 @@ public class PunishCommand implements CommandExecutor
     {
         if (args.length == 0)
         {
-            sender.sendMessage(ChatColor.GRAY + "Supply a username to punish");
+            return false;
+        }
+
+        if (!sender.hasPermission("punishments.punish"))
+        {
+            sender.sendMessage(Util.color("&cYou do not have permission to run this command."));
             return true;
         }
 
         Player player = Bukkit.getPlayer(args[0]);
-
         if (player == null)
         {
             sender.sendMessage(ChatColor.GRAY + "Player not found");
@@ -36,22 +40,16 @@ public class PunishCommand implements CommandExecutor
             reason = StringUtils.join(args, " ", 1, args.length);
         }
 
-        if (sender.hasPermission("punishments.punish"))
-        {
-            player.setHealth(0.0);
-            Location location = player.getLocation();
-            World world = player.getWorld();
-            for (int i = 0; i < 3; i++)
-            {
-                world.strikeLightning(location);
-            }
+        player.setHealth(0.0);
+        Location location = player.getLocation();
+        World world = player.getWorld();
 
-            Util.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Punishing " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
-        }
-        else
+        for (int i = 0; i < 3; i++)
         {
-            sender.sendMessage(Util.chatcolor("&7You do not have valid permissions to run this command"));
+            world.strikeLightning(location);
         }
+
+        Util.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Punishing " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
         return true;
     }
 }

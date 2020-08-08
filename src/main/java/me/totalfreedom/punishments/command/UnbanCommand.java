@@ -19,8 +19,13 @@ public class UnbanCommand implements CommandExecutor
             return false;
         }
 
-        OfflinePlayer player = Bukkit.getOfflinePlayer(args[0]);
+        if (sender.hasPermission("punishments.unban"))
+        {
+            sender.sendMessage(Util.color("&cYou do not have permission to run this command."));
+            return true;
+        }
 
+        OfflinePlayer player = Bukkit.getOfflinePlayer(args[0]);
         if (player == null)
         {
             sender.sendMessage(ChatColor.GRAY + "Player not found");
@@ -33,16 +38,8 @@ public class UnbanCommand implements CommandExecutor
             return true;
         }
 
-        if (sender.hasPermission("punishments.unban"))
-        {
-            Bukkit.getBanList(BanList.Type.NAME).pardon(player.getName());
-            Util.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Unbanning " + ChatColor.GREEN + player.getName());
-
-        }
-        else
-        {
-            sender.sendMessage(Util.chatcolor("&7You do not have valid permissions to run this command"));
-        }
+        Bukkit.getBanList(BanList.Type.NAME).pardon(player.getName());
+        Util.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Unbanning " + ChatColor.GREEN + player.getName());
         return true;
     }
 }

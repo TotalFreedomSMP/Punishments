@@ -16,12 +16,16 @@ public class KickCommand implements CommandExecutor
     {
         if (args.length == 0)
         {
-            sender.sendMessage(ChatColor.GRAY + "Supply a username to kick");
+            return false;
+        }
+
+        if (!sender.hasPermission("punishments.kick"))
+        {
+            sender.sendMessage(Util.color("&cYou do not have permission to run this command."));
             return true;
         }
 
         Player player = Bukkit.getPlayer(args[0]);
-
         if (player == null)
         {
             sender.sendMessage(ChatColor.GRAY + "Player not found");
@@ -39,21 +43,14 @@ public class KickCommand implements CommandExecutor
         if (args.length > 1)
         {
             reason = StringUtils.join(args, " ", 1, args.length);
-            message.append(ChatColor.GRAY);
-            message.append("\nReason: ")
+            message.append(ChatColor.GRAY)
+                    .append("\nReason: ")
                     .append(ChatColor.GREEN)
                     .append(reason);
         }
 
-        if (sender.hasPermission("punishments.kick"))
-        {
-            player.kickPlayer(message.toString());
-            Util.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Kicking " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
-        }
-        else
-        {
-            sender.sendMessage(Util.chatcolor("&7You do not have valid permissions to run this command"));
-        }
+        player.kickPlayer(message.toString());
+        Util.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Kicking " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
         return true;
     }
 }

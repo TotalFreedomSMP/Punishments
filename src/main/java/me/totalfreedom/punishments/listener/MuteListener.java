@@ -1,17 +1,15 @@
 package me.totalfreedom.punishments.listener;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MuteListener implements Listener
 {
-
     private static List<Player> mutelist = new ArrayList<>();
 
     public static boolean isMuted(Player player)

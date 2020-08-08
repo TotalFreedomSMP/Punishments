@@ -17,12 +17,16 @@ public class MuteCommand implements CommandExecutor
     {
         if (args.length == 0)
         {
-            sender.sendMessage(ChatColor.GRAY + "Supply a username to mute");
+            return false;
+        }
+
+        if (!sender.hasPermission("punishments.mute"))
+        {
+            sender.sendMessage(Util.color("&cYou do not have permission to run this command."));
             return true;
         }
 
         Player player = Bukkit.getPlayer(args[0]);
-
         if (player == null)
         {
             sender.sendMessage(ChatColor.GRAY + "Player not found");
@@ -41,17 +45,10 @@ public class MuteCommand implements CommandExecutor
             reason = StringUtils.join(args, " ", 1, args.length);
         }
 
-        if (sender.hasPermission("punishments.mute"))
-        {
-            MuteListener.addMute(player);
+        MuteListener.addMute(player);
 
-            Util.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Muting " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
-            player.sendMessage(ChatColor.GRAY + "You've been muted by " + ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
-        }
-        else
-        {
-            sender.sendMessage(Util.chatcolor("&7You do not have valid permissions to run this command"));
-        }
+        Util.broadcast(ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " » Muting " + ChatColor.GREEN + player.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
+        player.sendMessage(ChatColor.GRAY + "You've been muted by " + ChatColor.GREEN + sender.getName() + ChatColor.GRAY + " with reason: " + "'" + ChatColor.GREEN + reason + ChatColor.GRAY + "'");
         return true;
     }
 }
