@@ -1,14 +1,22 @@
 package me.totalfreedom.punishments.config;
 
 import me.totalfreedom.punishments.Punishments;
-import org.bukkit.configuration.file.FileConfiguration;
 
-public class ConfigEntry
+public enum ConfigEntry
 {
-    public static FileConfiguration config = Punishments.getPlugin(Punishments.class).getConfig();
+    SERVER_WEBSITE_OR_FORUM("server.website_or_forum");
 
-    public static String getWebsiteOrForum()
+    private final String path;
+
+    ConfigEntry(String path)
     {
-        return config.getString("server.website_or_forum");
+        this.path = path;
+    }
+
+    private static Config config = Punishments.getPlugin().config;
+
+    public String getString()
+    {
+        return config.getString(path);
     }
 }

@@ -8,25 +8,32 @@ import me.totalfreedom.punishments.command.PunishmentsCommand;
 import me.totalfreedom.punishments.command.UnbanCommand;
 import me.totalfreedom.punishments.command.UnmuteCommand;
 import me.totalfreedom.punishments.command.WarnCommand;
+import me.totalfreedom.punishments.config.Config;
 import me.totalfreedom.punishments.listener.BanListener;
 import me.totalfreedom.punishments.listener.MuteListener;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Punishments extends JavaPlugin
 {
-    ConsoleCommandSender console = getServer().getConsoleSender();
+    private static Punishments plugin;
+
+    public static Punishments getPlugin()
+    {
+        return plugin;
+    }
+
+    public Config config;
 
     @Override
     public void onEnable()
     {
-        saveDefaultConfig();
-        enableCommands();
-        enableListeners();
-        console.sendMessage("[Punishments] Enabled Punishments v1.2");
+        plugin = this;
+        config = new Config("config.yml");
+        loadCommands();
+        loadListeners();
     }
 
-    private void enableCommands()
+    private void loadCommands()
     {
         this.getCommand("ban").setExecutor(new BanCommand());
         this.getCommand("kick").setExecutor(new KickCommand());
@@ -38,7 +45,7 @@ public final class Punishments extends JavaPlugin
         this.getCommand("punishments").setExecutor(new PunishmentsCommand());
     }
 
-    private void enableListeners()
+    private void loadListeners()
     {
         this.getServer().getPluginManager().registerEvents(new BanListener(), this);
         this.getServer().getPluginManager().registerEvents(new MuteListener(), this);
@@ -47,6 +54,7 @@ public final class Punishments extends JavaPlugin
     @Override
     public void onDisable()
     {
-        console.sendMessage("[Punishments] Disabled Punishments v1.2");
+        plugin = null;
+        config.save();
     }
 }

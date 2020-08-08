@@ -1,17 +1,18 @@
 package me.totalfreedom.punishments.config;
 
-import java.io.File;
 import me.totalfreedom.punishments.Punishments;
 import org.bukkit.configuration.file.YamlConfiguration;
+
+import java.io.File;
 
 public class Config extends YamlConfiguration
 {
     private final Punishments plugin;
     private final File file;
 
-    public Config(Punishments plugin, String name)
+    public Config(String name)
     {
-        this.plugin = plugin;
+        this.plugin = Punishments.getPlugin();
         this.file = new File(plugin.getDataFolder(), name);
 
         if (!file.exists())
