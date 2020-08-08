@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71f7a615-25d0-4742-84c6-cf587f0b2a04" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/totalfreedom/punishments/Punishments.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/totalfreedom/punishments/command/PunishmentsCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Punishments.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Punishments.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/brooklynsuperior/punishments/Punishments.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/brooklynsuperior/punishments/commands/command_ban.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/totalfreedom/punishments/command/BanCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/brooklynsuperior/punishments/commands/command_kick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/totalfreedom/punishments/command/KickCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/brooklynsuperior/punishments/commands/command_mute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/totalfreedom/punishments/command/MuteCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/brooklynsuperior/punishments/commands/command_punish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/totalfreedom/punishments/command/PunishCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/brooklynsuperior/punishments/commands/command_punishments.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/brooklynsuperior/punishments/commands/command_unban.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/totalfreedom/punishments/command/UnbanCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/brooklynsuperior/punishments/commands/command_unmute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/totalfreedom/punishments/command/UnmuteCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/brooklynsuperior/punishments/commands/command_warn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/totalfreedom/punishments/command/WarnCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/brooklynsuperior/punishments/listeners/BanListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/totalfreedom/punishments/listener/BanListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/brooklynsuperior/punishments/listeners/MuteListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/totalfreedom/punishments/listener/MuteListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/brooklynsuperior/punishments/utils/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/totalfreedom/punishments/config/ConfigEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/brooklynsuperior/punishments/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/totalfreedom/punishments/util/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
